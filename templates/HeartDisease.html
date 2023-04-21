@@ -1,0 +1,172 @@
+{% extends "layout.html" %} {% block contents %}
+
+<br>
+<form class="container" action="/HeartDisease" method="POST">
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1" class="font-weight-bold">Age : </label>
+        <input type="number" name="age" class="form-control" id="age" placeholder="Enter Your Age " required>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="form-check form-check-inline">
+                <label class="font-weight-bold">
+                    Gender : </label>
+            </div>
+
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="1" required>
+                <label class="form-check-label" for="gender">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="0" required>
+                <label class="form-check-label" for="gender">Female</label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+
+        <div class="col">
+            <div class="form-group">
+                <label for="height" class="font-weight-bold">Height : </label>
+                <input type="number" name="height" class="form-control" id="height" placeholder="In Cms" required>
+            </div>
+
+
+
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="weight" class="font-weight-bold">Weight : </label>
+                <input type="number" name="weight" class="form-control" id="weight" placeholder="In Kgs" required>
+            </div>
+        </div>
+
+    </div>
+
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="form-group ">
+                <label for="sbp" class="font-weight-bold">Systolic blood pressure : </label>
+                <input type="text" name="sbp" class="form-control" id="sbp" placeholder="" required>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group ">
+                <label for="dbp" class="font-weight-bold">Diastolic blood pressure : </label>
+                <input type="text" name="dbp" class="form-control" id="dbp" placeholder="" required>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="form-check form-check-inline">
+                <label class="font-weight-bold">Cholestrol : </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cholestrol" id="cholestrol" value="1" required>
+                <label class="form-check-label" for="cholestrol">High</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cholestrol" id="cholestrol" value="0" required>
+                <label class="form-check-label" for="cholestrol">Medium</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cholestrol" id="cholestrol" value="0" required>
+                <label class="form-check-label" for="cholestrol">Low</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-check form-check-inline">
+                <label class="font-weight-bold">Glucose : </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="glucose" id="glucose" value="1" required>
+                <label class="form-check-label" for="glucose">High</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="glucose" id="glucose" value="0" required>
+                <label class="form-check-label" for="glucose">Medium</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="glucose" id="glucose" value="0" required>
+                <label class="form-check-label" for="glucose">Low</label>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="form-group">
+        <label class="font-weight-bold">Do you smoke ?</label>
+        <select class="form-control custom-select" id="smoke" name="smoke" required>
+            <option value=""></option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label class="font-weight-bold">Do you consume alchol ?</label>
+        <select class="form-control custom-select" id="alcohol" name="alcohol" required>
+            <option value=""></option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label class="font-weight-bold">Are you physically challenged ?</label>
+        <select class="form-control custom-select" id="active" name="active" required>
+            <option value=""></option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    </div>
+    <br>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-lg" type="submit">Submit</button>
+    </div>
+    <br><br>
+    <div class="card">
+        <h5 class="card-header text-center">Peek into Some Facts </h5>
+        <div class="card-body">
+            <h5 class="card-title text-center">The Below graph shows the total count of <b>Heart Disease patients versus
+                    their Age</b>
+            </h5>
+            <h5 class="text-center"><i class="fas fa-circle" style="color: blue;"> </i> Blue For Non-infected peoples
+            </h5>
+            <h5 class="text-center"><i class="fas fa-circle" style="color: orange;"> </i> Orange For infected peoples
+            </h5>
+            <img src="/static/HeartAge.png" class="card-img-top" alt="#">
+        </div>
+    </div>
+    <br><br>
+    <div class="card text-center">
+        <div class="card-header">
+            Some More Facts
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Alcohol and Smoke</h5>
+            <p class="card-text">The survey data shows that the individuals <b>who consume alcohol and smoke have 34%
+                    chances of getting the Heart Disease</b></p>
+
+        </div>
+        <div class="card-footer text-muted">
+            The Accuracy of the model is 73%
+        </div>
+    </div>
+</form>
+
+{% endblock contents%}
