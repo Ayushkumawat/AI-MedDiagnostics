@@ -64,7 +64,10 @@ We would like to acknowledge the following resources for their contributions to 
 - Flask documentation
 ## Contributors
 Abhishek Jain : https://www.linkedin.com/in/abhishek-jain-59a760210
+
 Garima Patel : https://www.linkedin.com/in/garima-patel-58b656241
+
 Abhishek Agarwal : https://www.linkedin.com/in/abhishek1981agarwal
+
 Ayush Kumawat : https://www.linkedin.com/in/ayush-kumawat/
 ![image](https://user-images.githubusercontent.com/76219349/234606853-adeffaaa-8b2d-40e4-8d42-f1f320a89cc5.png)
