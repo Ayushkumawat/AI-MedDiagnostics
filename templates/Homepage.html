@@ -1,0 +1,1730 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>AI-MedDiagnostics - Homepage</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+
+
+        * {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+
+
+        }
+
+        .contiainer {
+            display: flex;
+
+            height: 100vh;
+            flex-direction: column;
+            scroll-snap-type: y mandatory;
+            overflow: auto;
+
+        }
+
+        .section_1 {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+
+            background-size: cover;
+            background-image: url("/static/background_1.jpg");
+            background-repeat: no-repeat;
+            scroll-snap-align: start;
+
+
+
+        }
+
+        .section_1_overlay {
+            width: 100%;
+            height: 100vh;
+
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .section_2 {
+            display: flex;
+
+
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+            height: 100vh;
+
+            background-size: cover;
+            background-image: url("/static/background_about.png");
+            background-repeat: no-repeat;
+            scroll-snap-align: start;
+
+        }
+
+        .section_2_overlay {
+            width: 100%;
+            height: 100vh;
+
+            background-color: rgba(0, 0, 0, 0.4);
+
+        }
+
+        .section_3 {
+
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+
+            background-size: cover;
+            background-image: url("/static/background_3.jpg");
+            background-repeat: no-repeat;
+            scroll-snap-align: start;
+
+        }
+
+        .section_3_overlay {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+
+            background-color: rgba(0, 0, 0, 0.3);
+
+        }
+
+        .section_4 {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+
+            background-size: cover;
+            background-image: url("/static/assistant.jpg");
+            background-repeat: no-repeat;
+            scroll-snap-align: start;
+
+        }
+
+        .section_4_overlay {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+
+            background-color: rgba(0, 0, 0, 0.4);
+
+        }
+
+
+
+        .section_5 {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+
+            background-size: cover;
+            background-image: url("/static/assistant.jpg");
+            background-repeat: no-repeat;
+            scroll-snap-align: start;
+
+        }
+
+        .section_5_overlay {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+
+            background-color: rgba(0, 0, 0, 0.4);
+
+        }
+
+        .fcontainer {
+            display: flex;
+            position: fixed;
+            /* distribute remaining space between items */
+            /* center items vertically */
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+
+
+
+
+
+
+            flex-wrap: wrap;
+            z-index: 999;
+
+
+
+        }
+
+
+        .top_nav_head {
+            display: flex;
+            margin-right: auto;
+            margin-left: 100px;
+            padding: 10px 10px;
+
+        }
+
+        .top_nav_head img {
+            height: 35px;
+            width: 45px;
+            margin-top: 3px;
+
+        }
+
+        .fitem1 {
+
+            color: #fff;
+            font-size: 26px;
+            font-weight: 800;
+
+            animation: slideRight 1s ease forwards;
+
+
+
+        }
+
+        .fitem1 span {
+            color: #3bd2e5
+        }
+
+
+
+
+        .nav-items {
+            display: flex;
+            width: fit-content;
+            margin-right: 100px;
+
+
+        }
+
+        .fitem {
+
+            margin: 10px;
+            text-decoration: none;
+            color: #fff;
+
+            transition: 0.5s ease;
+            opacity: 0;
+            animation: slideTop 0.5s ease forwards;
+            animation-delay: calc(.2s*var(--i));
+
+
+
+        }
+
+        .NavLink.active-link {
+            color: #0ef;
+        }
+
+        .fitem:hover,
+        .active-link {
+            color: #0ef;
+
+
+        }
+
+
+
+
+
+        .form-actions {
+            margin: 0;
+            background-color: transparent;
+            text-align: center;
+        }
+
+        .mobileContent {
+            display: none;
+        }
+
+        @media only screen and (min-device-width:320px) and (max-device-width:480px) {
+            .mobileContent {
+                display: inline;
+            }
+
+            .table-responsive {
+                display: none;
+            }
+        }
+
+        .row {
+            display: flex;
+
+            height: 50%;
+
+
+            margin-top: 210px;
+            justify-content: space-evenly;
+            align-items: center;
+
+
+
+
+
+        }
+
+        .row img {
+
+            height: 580px;
+            width: 450px;
+
+            position: relative;
+            opacity: 0;
+            left: 50px;
+            top: -20px;
+
+
+        }
+
+        .home_content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            margin-left: -10px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            opacity: 0;
+            top: -50px;
+            
+
+        }
+
+        .home_content h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+
+        }
+
+        .home_content span {
+            /*background:  linear-gradient(0deg,#168aea 0%,#03E5B7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;*/
+            color: #3bd2e5
+        }
+
+        .home_content h4 {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .about_heading {
+            display: flex;
+            opacity: 0;
+            margin-top: 80px;
+            margin-bottom: 20px;
+            width: 100%;
+            justify-content: center;
+
+
+
+        }
+
+        .about_heading h1 {
+
+            font-size: 40px;
+
+            font-weight: 700;
+            color: #f4f4f4;
+
+
+        }
+
+        .about_heading span {
+            color: #0ef;
+        }
+
+        .detect {
+
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        .Chronic_container.assistance_text {
+            margin-top: 50px;
+
+        }
+
+        .assistance_text span {
+            color: #0ef;
+        }
+
+        .Chronic_container {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            padding-top: 20px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+            width: 20%;
+            height: 400px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px black;
+
+            background-color: #f4f4f44f;
+            backdrop-filter: blur(6px);
+            transition: 0.2s ease-in-out;
+
+        }
+
+        .assitant_container {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            padding-top: 20px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+            width: 22%;
+            height: 400px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px black;
+
+            background-color: #f4f4f44f;
+            backdrop-filter: blur(6px);
+            transition: 0.2s ease-in-out;
+
+
+
+        }
+
+        .covid_container {
+            display: flex;
+            flex-direction: column;
+
+            padding-top: 30px;
+            padding-bottom: 5px;
+            opacity: 0;
+            width: 22%;
+            height: 400px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px black;
+
+            background-color: #f4f4f44f;
+            ;
+            backdrop-filter: blur(6px);
+            transition: 0.2s ease-in-out;
+
+
+
+        }
+
+        .heart_container {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            padding-top: 20px;
+            padding-bottom: 5px;
+
+            width: 20%;
+            height: 400px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px black;
+            backdrop-filter: blur(6px);
+
+
+            background-color: #f4f4f44f;
+            ;
+
+            transition: 0.2s ease-in-out;
+
+
+        }
+
+        .heart_container:hover,
+        .Chronic_container:hover,
+        .covid_container:hover,
+        .assitant_container:hover {
+            transform: scale(1.05);
+            outline: 2px solid #0ef;
+            box-shadow: 0 0 10px #0ef;
+
+
+        }
+
+        .heart_container img {
+
+            position: relative;
+
+            height: 35%;
+            width: 60%;
+
+        }
+
+        .assitant_container img {
+            position: relative;
+            height: 90%;
+            width: 65%;
+
+        }
+
+        .covid_container img {
+            position: relative;
+            height: 39%;
+            width: 65%;
+
+        }
+
+        .Chronic_container img {
+            position: relative;
+
+            height: 45%;
+            width: 60%;
+
+
+        }
+
+        .symptoms_container {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+            background-color: #171721;
+        }
+
+        .assitance {
+            display: flex;
+            width: 75%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding-inline: 10px;
+        }
+
+        .assitance p {
+            font-size: 14px;
+            font-weight: 500;
+            word-spacing: 0.2em;
+            margin-top: 10px;
+            margin-bottom: 15px;
+
+
+        }
+
+        .assitance a {
+            padding-bottom: 30px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h5 {
+            color: #fff;
+        }
+
+        .card-deck {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            width: 65%;
+
+
+        }
+
+        .card-body {
+            display: flex;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+        }
+
+        .card img {
+            margin-right: 30px;
+        }
+
+        hr {
+            width: 85%;
+            border: 1px solid #f4f4f4;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        .button-assistant {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 12px 28px;
+
+
+            background: linear-gradient(0deg, #168aea 0%, #0ef 100%);
+
+            height: 35px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px black;
+            font-size: 15px;
+            color: #1f242d;
+
+            text-decoration: none;
+            transition: 0.4s ease;
+
+        }
+
+
+        .section3_heading {
+            display: flex;
+            margin-top: 80px;
+            margin-bottom: 20px;
+            justify-content: center;
+            opacity: 0;
+            width: 100%;
+
+        }
+
+        .section3_heading h1 {
+
+
+            font-size: 40px;
+
+            font-weight: 700;
+            color: #ffff;
+
+
+
+        }
+
+        .section3_heading span {
+            color: #0ef
+        }
+
+        .section3_container_outer {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            justify-content: center;
+
+        }
+
+        .section3_elements_container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: fit-content;
+
+
+
+        }
+
+        .section3_elements_container .elements_row1,
+        .section3_elements_container .elements_row2 {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .section3_elements_container .element_1,
+        .section3_elements_container .element_2,
+        .section3_elements_container .element_3,
+        .section3_elements_container .element_4 {
+            display: flex;
+            opacity: 0;
+            flex-direction: column;
+            cursor: pointer;
+            margin: 5px;
+            width: 50%;
+            height: 200px;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f453;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 10px black;
+            transition: 0.2s ease-in-out;
+        }
+
+        .section3_elements_container .element_1 {
+            border-radius: 30px 0 0 0;
+        }
+
+        .section3_elements_container .element_2 {
+            border-radius: 0 30px 0 0;
+        }
+
+        .section3_elements_container .element_3 {
+            border-radius: 0 0 0 30px;
+        }
+
+        .section3_elements_container .element_4 {
+            border-radius: 0 0 30px 0;
+        }
+
+        .element_1 h1,
+        .element_2 h1,
+        .element_3 h1,
+        .element_4 h1 {
+            color: #171721;
+            font-size: 27px;
+
+
+        }
+
+        .element_1:hover,
+        .element_2:hover,
+        .element_3:hover,
+        .element_4:hover,
+        .circular-progress:hover {
+            transform: scale(1.07) !important;
+            outline: 2px solid #0ef;
+            box-shadow: 0 0 10px #0ef;
+            z-index: 50;
+        }
+
+        .element_1_popup,
+        .element_2_popup,
+        .element_3_popup,
+        .element_4_popup {
+            z-index: 999;
+            position: absolute;
+
+            scale: 0;
+            visibility: hidden;
+
+            display: flex;
+            flex-direction: column;
+            width: 55%;
+            height: 500px;
+            top: -70px;
+            border-radius: 20px;
+            backdrop-filter: blur(7px);
+            background-color: #1717219c;
+            outline: 2px solid #0ef;
+            box-shadow: 0 0 10px #0ef, 0 0 30px black;
+            transition: 0.5s cubic-bezier(.24, .08, .49, 1.32);
+
+        }
+
+        .popup_active {
+            visibility: visible;
+            scale: 1;
+        }
+
+        .element_popup_head {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 30px;
+
+
+        }
+
+        .element_popup_head h1 {
+            font-size: 35px;
+            color: #f2f2f2;
+
+
+
+        }
+
+        .element_popup_head span {
+            color: #0ef;
+        }
+
+        .popup_icon i {
+            position: fixed;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 1) inset;
+            right: 15px;
+            top: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #0ef;
+            cursor: pointer;
+        }
+
+
+        .progress-outer-container {
+            z-index: 60;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+
+
+            display: flex;
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+
+
+
+
+
+        }
+
+        .progress-container {
+
+
+            display: flex;
+
+
+            opacity: 0;
+            cursor: default;
+            justify-content: center;
+            flex-direction: column;
+            width: fit-content;
+            align-items: center;
+            height: fit-content;
+            transition: 0.4s cubic-bezier(0.24, 0.08, 0.66, 1.71);
+
+
+
+
+
+
+
+        }
+
+        .circular-progress {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 160px;
+            width: 160px;
+            border-radius: 50%;
+            background: conic-gradient(#0ef 324deg, #494949 0deg);
+            transition: 1s ease;
+            box-shadow: 0 0 50px #171721, 0 0 20px #343434;
+
+
+
+            transition: 0.5s ease;
+
+
+
+        }
+
+        .circular-progress::before {
+            content: "";
+            position: absolute;
+
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            background: #171721
+        }
+
+        .skill-text-container2 {
+            display: flex;
+
+
+
+        }
+
+        .progress-value {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .progress-value span {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .section_4_container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+        }
+
+        .assistant_content {
+            display: flex;
+            width: 45%;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-right: 80px;
+            opacity: 0;
+
+
+
+
+        }
+
+        .assistant_content h1 {
+            font-size: 43px;
+            font-weight: 700;
+            color: #f0f0f0;
+
+        }
+
+        .assistant_content span {
+
+            color: #0ef;
+        }
+
+        .assistant_content p {
+            font-size: 16px;
+            font-weight: 400;
+            color: #f0f0f0;
+        }
+
+        .assitant_button_container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            z-index: 9999;
+            margin-right: 50px;
+            opacity: 0;
+
+        }
+
+        .assitant_button {
+            display: flex;
+            flex-direction: column;
+
+            position: absolute;
+            cursor: pointer;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(0deg, #101018 0%, #454547 100%);
+            box-shadow: 0 0 10px #0ef, 0 0 30px black;
+            border-radius: 50%;
+
+            align-items: center;
+            justify-content: center;
+
+
+            color: white;
+            border: 2px solid #0ef;
+            transition: 0.2s ease-in-out;
+
+        }
+
+        .assitant_button h1 {
+            font-size: 25px;
+            font-weight: 600;
+            color: #0ef;
+
+        }
+
+
+        .overlay_button {
+
+
+            position: absolute;
+
+
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: #0ef;
+            opacity: 0;
+
+
+            animation: pulse 1s ease-out infinite;
+            transition: 1s ease-in-out;
+        }
+
+        .assitant_button_container:hover .overlay_button {
+            animation: none;
+            opacity: .4;
+            transform: scale(1.3);
+        }
+
+        .assitant_button_container:hover .assitant_button {
+            transform: scale(1.05);
+
+
+        }
+
+
+
+        .home_content_animation {
+            animation: slideTop 1s ease-in-out forwards;
+            animation-delay: 0.2s;
+
+
+        }
+
+        .home_image_animation {
+            animation: slideBottom 1s ease-in-out forwards;
+            animation-delay: 0.2s;
+
+        }
+
+        .about_heading_animation {
+            animation: slideTop 1s ease-in-out forwards;
+
+
+        }
+
+        .Chronic_container_animation {
+            animation: slideRight 1s ease-in-out forwards;
+
+        }
+
+        .heart_container_animation {
+            animation: slideRight 1s ease-in-out forwards;
+
+
+        }
+
+        .assitant_container_animation {
+            animation: slideRight 1s ease-in-out forwards;
+
+        }
+
+        .covid_container_animation {
+            animation: slideRight 1s ease-in-out forwards;
+
+        }
+
+        .section3_heading_animation {
+            animation: slideTop 1s ease-in-out forwards;
+
+
+        }
+
+        .progress_container_animation {
+            animation: Zoom 1s ease-in-out forwards;
+            animation-delay: 0.5s;
+
+        }
+
+        .element_1_animation,
+        .element_3_animation {
+            animation: slideRight 1s ease-in-out forwards;
+
+
+        }
+
+        .element_2_animation,
+        .element_4_animation {
+            animation: slideLeft 1s ease-in-out forwards;
+
+
+        }
+
+        .assistant_content_animation {
+            animation: slideRight 1s ease-in-out forwards;
+
+
+        }
+
+        .element_popup_content{
+            display: flex;
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 90%;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .assitant_button_container_animation {
+            animation: Zoom 1s ease-in-out forwards;
+            animation-delay: 0.5s;
+
+
+
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: .8;
+            }
+
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+
+        }
+
+        @keyframes Zoom {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes opacity1 {
+            0% {
+                opacity: 0;
+
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes slideTop {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes slideBottom {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contiainer">
+
+        <section class="section_1" id="home">
+            <div class="section_1_overlay">
+                <nav class='fcontainer'>
+                    <div class="top_nav_head">
+                        <div class='fitem1'>AI <span>MedDiagnos</span></div>
+                        <img src="/static/heart_img.png">
+                    </div>
+
+
+                    <div class='nav-items'>
+                        <a class="fitem" href="#home">Home</a>
+                        <a aria-current="page" class='fitem' href="#assist">Healthcare Assistant</a>
+                        <a aria-current="page" class='fitem' href="#desiese_detectors">Disease Detection</a>
+                        <a aria-current="page" class='fitem' href="#about">About AI MedDiagnos</a>
+                       
+                    </div>
+                </nav>
+
+
+                <br>
+
+                <div class="row">
+
+                    <div class="home_content home_content_animation">
+
+
+
+                        <h1 style="color:#f0f0f0" class="text-left mt-3 mx-0 font-weight-bolder">AI
+                            <span>MedDiagnostics</span>
+                        </h1>
+                        <h4 class="text-center p-3 font-italic" style="color:#f0f0f0">Welcome to our cutting-edge
+                            healthcare platform, where technology meets wellness. Experience the power of symptom
+                            analysis and disease detection at your fingertips.</h4>
+                    </div>
+                    <img class="home_img home_image_animation" src="/static/Healthcare_doc.png">
+
+
+
+                </div>
+                {% if feedback == "True" %}
+                <div id="alert" class="container">
+                    <br>
+                    <div class="alert alert-success text-center font-weight-bold fon" role="alert">
+                        <h5>Thanks for your Feedback !! </h5>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+        <section class="section_4" id="assist">
+            <div class="section_4_overlay">
+
+                <div class="section_4_container">
+                    <div class="assistant_content">
+                        <h1>Healthcare <span>Assistant</span></h1>
+                        <p>Enabling individuals to access comprehensive healthcare assistance, empowering them to
+                            prioritize
+                            their well-being and make informed decisions for a healthier and happier life.</p>
+
+                    </div>
+                    <div class="assitant_button_container">
+                        <div class="overlay_button"></div>
+
+                        <a href="{{ url_for('HealthCareAssistant') }}" class="assitant_button">
+                            <h1>Get</h1>
+                            <h1>Assistance</h1>
+
+                        </a>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </section>
+
+
+        <section class="section_2" id="desiese_detectors">
+            <div class="section_2_overlay">
+
+                <div class="about_heading">
+                    <h1>Disease <span>Detectors</span></h1>
+                </div>
+                <div class="detect">
+            
+                    <div class="assitant_container">
+                        <h2 class="assistance_text" style="color: #ffff;margin-top: 20px;">Symptom</h2>
+                        <h2 class="assistance_text" style="color: #ffff;"><span>Tracker</span>
+                        </h2>
+                        <hr>
+                        <img src="/static/health.gif">
+                        <div class="assitance">
+
+
+                            <p style="color: #ffff">Quickly identify potential diseases with our user-friendly symptom tracker</p>
+
+
+                            <a href="{{ url_for('Disease') }}"
+                                style="margin-right:10px;margin-top:40px"><button
+                                    class="button-assistant">Track</button></a>
+
+                        </div>
+                    </div>
+
+
+                    <div class="covid_container">
+                        <h2 class="assistance_text" style="color: #ffff;margin-top: 20px;">Covid - 19</h2>
+                        <h2 class="assistance_text" style="color: #ffff;"><span>Detector</span>
+                        </h2>
+                        <hr>
+                        <img src="/static/VirusImage.gif" alt="3">
+                        <div class="assitance">
+
+
+                            <p style="color: #ffff">Analyzing symptoms and risk factors to aid in early detection of COVID-19 
+                            </p>
+
+                            <a href="{{ url_for('Coronavirus') }}" style="margin-top:30px;margin-bottom: 5px;"><button
+                                    class="button-assistant">Detect</button></a>
+                        </div>
+                    </div>
+
+                    <div class="Chronic_container">
+                        <h2 class="assistance_text" style="color: #ffff ;margin-top: 20px">Kidney Disease </h2>
+                        <h2 class="assistance_text" style="color: #ffff ;"><span>Detector</span>
+                        </h2>
+                        <hr>
+                        <img src="/static/2zFp.gif">
+                        <div class="assitance">
+
+
+                            <p style="color: #ffff" magin-top:40px>Detect chronic kidney disease early with our advanced tracker</p>
+
+                            <a href="{{ url_for('CKD') }}" style="margin-right:10px"><button
+                                    class="button-assistant">Detect</button></a>
+
+                        </div>
+                    </div>
+
+                    <div class="heart_container">
+                        <h2 class="assistance_text" style="color: #ffff;margin-top: 20px;">Heart Disease</h2> 
+                        <h2 class="assistance_text" style="color: #ffff;"><span>Detector</span>
+                        </h2>
+                        <hr>
+                        <img src="/static/6HTh.gif">
+                        <div class="assitance">
+
+
+                            <p style="color: #ffff">Uncover hidden signs of heart disease with our advanced detection tool.</p>
+
+
+                            <a href="{{ url_for('Heart_disease') }}" style="margin-right:10px;margin-top:40px"><button
+                                    class="button-assistant">Assistant</button></a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </section>
+
+        <section class="section_3" id="about">
+            <div class="section_3_overlay">
+                <div class="section3_heading">
+                    <h1>About <span>AI MedDiagnostics</span></h1>
+                </div>
+                <div class="section3_container_outer">
+                    <div class="section3_elements_container">
+                        <div class="progress-outer-container">
+
+                            <div class="progress-container" id="progress3">
+                                <div class="circular-progress">
+                                    <div class="progress-value">
+
+                                        <span>95%</span>
+                                        <span style="color:#0ef">accuaracy</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="elements_row1">
+                            <div onclick="open_element1_popup()" class="element_1">
+                                <h1>COVID-19</h1>
+                                <h1 style="color: #0ef;">Detector</h1>
+    
+    
+                            </div>
+    
+                            <div class="element_2" onclick="open_element2_popup()">
+                                <h1>Symptom</h1>
+                                <h1 style="color: #0ef;">Diagnosis</h1>
+    
+                            </div>
+                        </div>
+    
+                        <div class="elements_row2">
+                            <div class="element_3" onclick="open_element3_popup()">
+                                <h1>Heart Disease</h1>
+                                <h1 style="color: #0ef;">Detector</h1>
+    
+    
+                            </div>
+    
+                            <div class="element_4" onclick="open_element4_popup()">
+                                <h1>Kidney Disease</h1>
+                                <h1 style="color: #0ef;">Detector</h1>
+    
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="element_1_popup">
+
+                        <div class="popup_icon" onclick="close_element1_popup()"><i class="fa fa-solid fa-circle-xmark"></i>
+                        </div>
+    
+                        <div class="element_popup_head">
+                            <h1>COVID-19 <span>Detector</span></h1>
+                        </div>
+    
+    
+                        <div class="element_popup_content">
+                            <p style="color:rgb(156, 192, 220)">Introducing our COVID-19 detection tool, designed to provide a reliable and efficient way to assess potential COVID-19 cases. By analyzing reported symptoms, exposure history, and relevant risk factors, our advanced algorithm offers an initial screening for possible infection.
+
+                                Our COVID-19 detection tool is based on the latest medical research and guidelines, continually updated to ensure accurate results. It serves as an additional resource to complement professional medical advice and testing.
+                                
+                                Please note that the COVID-19 detection tool is not a substitute for professional diagnosis or medical consultation. If you suspect you may have COVID-19 or have been in close contact with an infected individual, we strongly recommend seeking guidance from healthcare authorities and following official testing protocols.</p>
+                            
+                        </div>
+    
+                    </div>
+    
+                    <div class="element_2_popup">
+    
+                        <div class="popup_icon" onclick="close_element2_popup()"><i class="fa fa-solid fa-circle-xmark"></i>
+                        </div>
+    
+                        <div class="element_popup_head">
+                            <h1>Symptom <span>Diagnosis</span></h1>
+                        </div>
+    
+                        <div class="element_popup_content">
+                            <p style="color:rgb(156, 192, 220)">Our symptom tracker is a powerful tool designed to help you understand and monitor your health. By simply inputting your symptoms, you can gain valuable insights into potential underlying conditions.
+
+                                Track your symptoms with ease, whether it's a persistent cough, fatigue, or any other discomfort. Our intuitive interface guides you through the process, allowing you to record and update your symptoms as needed.
+                                
+                                The symptom tracker then analyzes your reported symptoms and provides you with potential diagnoses based on medical knowledge and patterns. It is an invaluable resource to help you have more informed conversations with healthcare professionals and make proactive decisions about your well-being.</p>
+                            
+                        </div>
+    
+                    </div>
+    
+                    <div class="element_3_popup">
+    
+                        <div class="popup_icon" onclick="close_element3_popup()"><i class="fa fa-solid fa-circle-xmark"></i>
+                        </div>
+    
+                        <div class="element_popup_head">
+                            <h1>Heart Disease <span>Detector</span></h1>
+                        </div>
+    
+                        <div class="element_popup_content">
+                            <p style="color:rgb(156, 192, 220)">Our heart disease detector is a cutting-edge tool designed to assess your risk and provide valuable insights into your cardiovascular health. By analyzing various factors such as symptoms, medical history, and lifestyle, it offers an initial screening for potential heart conditions.
+
+                                Using advanced algorithms and medical expertise, our heart disease detector helps identify early warning signs and prompts you to take proactive measures for your heart health. It serves as a powerful resource to assist you in making informed decisions and seeking appropriate medical advice.
+                                
+                                Please note that the heart disease detector is not a substitute for professional medical evaluation. If you have concerning symptoms or a family history of heart disease, it is crucial to consult with a healthcare professional for a comprehensive assessment.</p>
+                            
+                        </div>
+    
+                    </div>
+    
+                    <div class="element_4_popup">
+    
+                        <div class="popup_icon" onclick="close_element4_popup()"><i class="fa fa-solid fa-circle-xmark"></i>
+                        </div>
+    
+                        <div class="element_popup_head">
+                            <h1>Kidney Disease <span>Detector</span></h1>
+                        </div>
+    
+                        <div class="element_popup_content">
+                            <p style="color:rgb(156, 192, 220)">Our chronic kidney disease detector is a revolutionary tool designed to evaluate your risk and provide valuable insights into your kidney health. By analyzing various factors such as symptoms, medical history, and laboratory results, it offers an initial screening for potential chronic kidney disease.
+
+                                With advanced algorithms and medical expertise, our detector can help identify early signs of kidney dysfunction, allowing for timely intervention and proactive management. It serves as a valuable resource to guide you in making informed decisions and seeking appropriate medical guidance.
+                                
+                                Please note that the chronic kidney disease detector is not a substitute for professional medical diagnosis. If you experience concerning symptoms or have risk factors for kidney disease, it is essential to consult with a healthcare professional for a thorough evaluation.
+                                
+                                </p>
+                            
+                        </div>
+    
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        
+
+
+    </div>
+
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 300,
+            duration: 1000,
+        });
+    </script>
+    <script>
+        var container = document.querySelector('.contiainer');
+        var sections = document.querySelectorAll('.section');
+        var home_content = document.querySelector('.home_content');
+        var home_image = document.querySelector('.home_img');
+
+        var about_heading = document.querySelector('.about_heading');
+        var Chronic_container = document.querySelector('.Chronic_container');
+        var heart_container = document.querySelector('.heart_container');
+        var assitant_container = document.querySelector('.assitant_container');
+        var covid_container = document.querySelector('.covid_container');
+        var section3_heading = document.querySelector('.section3_heading');
+        var section3_heading = document.querySelector('.section3_heading');
+        var element_1 = document.querySelector('.element_1');
+        var element_2 = document.querySelector('.element_2');
+        var element_3 = document.querySelector('.element_3');
+        var element_4 = document.querySelector('.element_4');
+        var progress_container_animation = document.querySelector('.progress-container');
+        var assistant_content = document.querySelector('.assistant_content');
+        var assitant_button_container = document.querySelector('.assitant_button_container');
+
+
+
+
+
+
+
+
+        container.addEventListener('scroll', function () {
+            // Get the current scroll position within the container
+            var scrollPosition = container.scrollTop;
+
+            // Get all the sections within the container
+            var sections = document.querySelectorAll('.section_1, .section_2, .section_3, .section_4');
+
+            // Variable to store the active section ID
+            var activeSectionId = null;
+
+            // Iterate over each section to find the active one
+            sections.forEach(function (section) {
+                var sectionTop = section.offsetTop;
+                var sectionHeight = section.offsetHeight;
+
+                // Check if the scroll position is within the section's range
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    activeSectionId = section.id;
+                }
+            });
+
+            if (activeSectionId === "home") {
+
+                home_content.classList.add("home_content_animation");
+                home_image.classList.add("home_image_animation");
+
+            }
+            else {
+                home_content.classList.remove('home_content_animation');
+                home_image.classList.remove("home_image_animation");
+            }
+            console.log('Active section:', activeSectionId);
+
+            if (activeSectionId === "desiese_detectors") {
+
+                about_heading.classList.add("about_heading_animation");
+                Chronic_container.classList.add("Chronic_container_animation");
+                heart_container.classList.add("Chronic_container_animation");
+                assitant_container.classList.add("assitant_container_animation");
+                covid_container.classList.add("covid_container_animation");
+
+
+
+            }
+
+            else {
+                about_heading.classList.remove("about_heading_animation");
+                Chronic_container.classList.remove("Chronic_container_animation");
+                heart_container.classList.remove("Chronic_container_animation");
+                assitant_container.classList.remove("assitant_container_animation");
+                covid_container.classList.remove("covid_container_animation");
+
+            }
+
+
+            if (activeSectionId === "about") {
+
+                section3_heading.classList.add("section3_heading_animation");
+
+                element_1.classList.add("element_1_animation");
+                element_2.classList.add("element_2_animation");
+                element_3.classList.add("element_3_animation");
+                element_4.classList.add("element_4_animation");
+                progress_container_animation.classList.add("progress_container_animation");
+
+
+
+
+
+            }
+
+            else {
+                section3_heading.classList.remove("section3_heading_animation");
+
+                element_1.classList.remove("element_1_animation");
+                element_2.classList.remove("element_2_animation");
+                element_3.classList.remove("element_3_animation");
+                element_4.classList.remove("element_4_animation");
+                element_4.classList.remove("element_4_animation");
+                progress_container_animation.classList.remove("progress_container_animation");
+
+
+            }
+            if (activeSectionId === "assist") {
+                assistant_content.classList.add("assistant_content_animation");
+                assitant_button_container.classList.add("assitant_button_container_animation");
+            }
+
+            else {
+                assistant_content.classList.remove("assistant_content_animation");
+                assitant_button_container.classList.remove("assitant_button_container_animation");
+
+
+
+            }
+
+
+
+        });
+
+
+
+
+
+        // Attach scroll event listener
+
+
+        const navLinks = document.querySelectorAll('.nav-items a');
+
+        // Add click event listener to each navigation link
+        navLinks.forEach(link => {
+
+            link.addEventListener('click', scrollToSection);
+
+        });
+
+        // Function to scroll to the clicked section
+        function scrollToSection(e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Get the target section ID from the link's href attribute
+            const targetId = this.getAttribute('href');
+
+            // Scroll to the target section
+
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+        }
+
+
+
+
+
+
+
+        let popup_element1 = document.querySelector(".element_1_popup")
+        function open_element1_popup() {
+            popup_element1.classList.add("popup_active")
+        }
+        function close_element1_popup() {
+            popup_element1.classList.remove("popup_active")
+        }
+
+
+
+        let popup_element2 = document.querySelector(".element_2_popup")
+        function open_element2_popup() {
+            popup_element2.classList.add("popup_active")
+        }
+        function close_element2_popup() {
+            popup_element2.classList.remove("popup_active")
+        }
+
+
+        let popup_element3 = document.querySelector(".element_3_popup")
+        function open_element3_popup() {
+            popup_element3.classList.add("popup_active")
+        }
+        function close_element3_popup() {
+            popup_element3.classList.remove("popup_active")
+        }
+
+        let popup_element4 = document.querySelector(".element_4_popup")
+        function open_element4_popup() {
+            popup_element4.classList.add("popup_active")
+        }
+        function close_element4_popup() {
+            popup_element4.classList.remove("popup_active")
+        }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

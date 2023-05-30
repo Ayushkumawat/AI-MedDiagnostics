@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Chatbot Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .chat-container {
+      width: 1000px;
+      margin: 50px auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-header {
+      background-color: #1976d2;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .chat-header h2 {
+      font-size: 18px;
+    }
+
+    .chat-log {
+      height: 400px;
+      padding: 10px;
+      overflow-y: scroll;
+    }
+
+    .chat-message {
+      margin: 10px 0;
+    }
+
+    .bot-message {
+      text-align: left;
+    }
+
+    .user-message {
+      text-align: right;
+    }
+
+    .bot-message p,
+    .user-message p {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 70%;
+      word-wrap: break-word;
+    }
+
+    .chat-form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      border-radius: 0 0 5px 5px;
+    }
+
+    #chat-input {
+      width: 320%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #1976d2;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0d47a1;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>Chatbot</h2>
+    </div>
+    <div class="chat-log">
+      <div class="chat-message bot-message" id="chat-message">
+
+      </div>
+    </div>
+    <div class="chat-form">
+      <form id="chat-form" action="/HealthCareAssistant" method="POST">
+        <input type="text" name="message" id="chat-input" placeholder="Type your message here" />
+        <button id="addbtn" onclick="input_click()" type="submit">Send</button>
+      </form>
+    </div>
+    <div class="chat-log">
+      <div class="chat-message bot-message">
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    let message_storage;
+    let messageobj
+    let messages_store
+    let reply_bot ="{{ reply|safe }}";
+    let message_bot ="{{ message|safe }}";
+
+   
+
+  console.log(reply_bot,message_bot,"++++++++++")
+    
+    messages_store = localStorage.getItem("messages_store");
+    messageobj = (messages_store == null) ? [] : JSON.parse(messages_store);
+   
+    function showcontent(){
+    html=""
+    messageobj.forEach((element, index) => {
+     
+      
+      html += `
+        <p>${element[0]} ${index}</p>
+        <p>${element[1]} ${index}</p>
+        `
+    })
+    document.getElementById("chat-message").innerHTML = html;
+  }
+    showcontent()
+    function input_click(){
+  
+      let input_text = document.getElementById("chat-input");
+      if (input_text.value!=""){
+
+      console.log("999999999999999999")
+      messageobj.push([reply_bot, message_bot]);
+      messageobj.push([" "," "])
+
+      localStorage.setItem("messages_store", JSON.stringify(messageobj));
+      }
+      showcontent()
+    }
+  </script>
+</body>
+
+</html>
